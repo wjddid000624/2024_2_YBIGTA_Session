@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset, random_split
+from torch.optim.lr_scheduler import StepLR
 import time
 from tqdm import tqdm
 
@@ -17,7 +18,7 @@ import os
 
 # 하이퍼파라미터 설정
 batch_size = 128
-num_epochs = 75
+num_epochs = 150
 learning_rate = 0.005
 
 
@@ -153,6 +154,6 @@ if __name__ == "__main__":
     val_loader = get_dataloader(val_dataset)
     test_loader = get_dataloader(test_dataset)
 
-    model = CNN()
-    # model = VisionTransformer()
+    # model = CNN()
+    model = VisionTransformer()
     run_experiment(model, train_loader, val_loader, test_loader)

@@ -106,13 +106,13 @@ x_test, y_test = load_dataset()
 datasets = make_dataset(x_test, y_test)
 
 
-models = ['model_save/CNN.pt']
+models = ['model_save/VIT.pt']
 
 profit_ranking = []
 
 for item in models:
-    # model = VisionTransformer()
-    model = CNN()
+    model = VisionTransformer()
+    # model = CNN()
     model.load_state_dict(torch.load(item))
     model.eval()
     list_of_signals = []
